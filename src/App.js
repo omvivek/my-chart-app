@@ -10,7 +10,7 @@ const generateData = () => {
 
   for (let date = new Date(startDate); date <= endDate; date.setDate(date.getDate() + 1)) {
     const dateString = date.toISOString().slice(0, 10);
-    const value = Math.floor(Math.random() * 20) + 5; // Random value between 5 and 24
+    const value = Math.floor(Math.random() * 20) + 5; 
     data.push({ timestamp: dateString, value });
   }
 
@@ -29,13 +29,13 @@ const App = () => {
   
     switch (timeframe) {
       case 'daily':
-        updatedData = initialData; // Use the initial data for daily view
+        updatedData = initialData; 
         break;
       case 'weekly':
-        updatedData = aggregateData(initialData, 'week'); // Aggregate data weekly
+        updatedData = aggregateData(initialData, 'week'); 
         break;
       case 'monthly':
-        updatedData = aggregateData(initialData, 'month'); // Aggregate data monthly
+        updatedData = aggregateData(initialData, 'month'); 
         break;
       default:
         updatedData = initialData;
@@ -44,7 +44,7 @@ const App = () => {
     setData(updatedData);
   };
   
-  // Function to aggregate data based on timeframe (week or month)
+ 
   const aggregateData = (data, timeframe) => {
     if (timeframe === 'week') {
       return aggregateWeekly(data);
@@ -54,9 +54,9 @@ const App = () => {
     return data;
   };
   
-  // Function to aggregate data weekly
+  
   const aggregateWeekly = (data) => {
-    // Example logic to aggregate daily data to weekly data
+    
     const weeklyData = [];
     let tempWeek = null;
     let tempValueSum = 0;
@@ -89,9 +89,9 @@ const App = () => {
     return weeklyData;
   };
   
-  // Function to aggregate data monthly
+  
   const aggregateMonthly = (data) => {
-    // Example logic to aggregate daily data to monthly data
+    
     const monthlyData = [];
     let tempMonth = null;
     let tempValueSum = 0;

@@ -9,7 +9,7 @@ const Chart = ({ data }) => {
   const handleExportClick = () => {
     if (chartRef.current && chartRef.current.container) {
       const chartContainer = chartRef.current.container;
-      chartContainer.style.backgroundColor = 'white'; // Set background color
+      chartContainer.style.backgroundColor = 'white'; 
 
       toPng(chartContainer.firstChild)
         .then((dataUrl) => {
@@ -17,11 +17,11 @@ const Chart = ({ data }) => {
           link.download = 'chart.png';
           link.href = dataUrl;
           link.click();
-          chartContainer.style.backgroundColor = ''; // Reset background color after export
+          chartContainer.style.backgroundColor = ''; 
         })
         .catch((error) => {
           console.error('Error exporting chart:', error);
-          chartContainer.style.backgroundColor = ''; // Reset background color on error
+          chartContainer.style.backgroundColor = ''; 
         });
     }
   };
